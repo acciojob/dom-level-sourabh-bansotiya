@@ -1,12 +1,17 @@
 //your JS code here. If required.
 function cntLevel() {
-	const level = document.getElementById('level');
-	let res = '';
-	for (let i = 0; i < level.length; i++) {
-		if (level[i] > 0) {
-			res += level[i];
-			
-		}
-		alert("The level of the element is :" res);
-	}
+    const level = document.getElementById('level');
+    let count = 0;
+    
+    // Loop through parent elements until reaching the root <html> element
+    while (level.parentElement) {
+        level = level.parentElement;
+        count++;
+    }
+    
+    alert("The level of the element is: " + count);
 }
+
+// Call the function when the page is loaded
+window.onload = cntLevel;
+
